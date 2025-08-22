@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // MongoDB connection
-const mongoURI = "mongodb+srv://shadow:shadow11@cluster0.z3p61vh.mongodb.net"; // replace with your MongoDB URI
+const mongoURI = "mongodb+srv://shadow:shadow11@cluster0.z3p61vh.mongodb.net/notepad"; // replace with your MongoDB URI
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
