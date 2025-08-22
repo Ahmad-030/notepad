@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 // ✅ MongoDB local connection (works with Compass)
-const mongoURI = "mongodb://127.0.0.1:27017/notepad";
+const mongoURI = "mongodb+srv://shadow:shadow11@cluster0.z3p61vh.mongodb.net/notepadd";
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
