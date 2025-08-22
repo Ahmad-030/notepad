@@ -4,16 +4,17 @@ import mongoose from "mongoose";
 const app = express();
 app.use(express.json());
 
-// MongoDB connection
-const mongoURI = "mongodb+srv://shadow:shadow11@cluster0.z3p61vh.mongodb.net/notepad?retryWrites=true&w=majority"; // replace with your MongoDB URI
+// ✅ MongoDB local connection (works with Compass)
+const mongoURI = "mongodb://127.0.0.1:27017/notepad";
+
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log("MongoDB connected ✅"))
-.catch((err) => console.log("MongoDB connection error:", err));
+.then(() => console.log("✅ MongoDB connected locally"))
+.catch((err) => console.log("❌ MongoDB connection error:", err));
 
-// Define Note schema & model directly here
+// Define Note schema & model
 const noteSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
@@ -26,7 +27,7 @@ const Note = mongoose.model("Note", noteSchema);
 
 // Test API
 app.get("/", (req, res) => {
-  res.send({ message: "API Working " });
+  res.send({ message: "API Working 🚀" });
 });
 
 // Create a new note
@@ -83,4 +84,4 @@ app.delete("/notes/:id", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
